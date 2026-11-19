@@ -1,22 +1,19 @@
 package com.ipartek.formacion.oop.presentacion.consola;
 
-import java.util.Scanner;
+import static com.ipartek.formacion.bibliotecas.consola.Consola.*;
+
+import java.time.LocalDate;
 
 public class PersonaConsola {
+
 	public static void main(String[] args) {
-		String nombre = IO.readln("Dime tu nombre: ");
-		
-		IO.println("Hola " + nombre);
-		
-		System.out.println("Hola");
-		Scanner sc = new Scanner(System.in);
-		
-		int entero = Integer.parseInt(sc.nextLine());
-		System.out.println(entero);
-		
-		String texto = sc.nextLine();
-		System.out.println(texto);
-		
-		sc.close();
+		int entero = rInt("Dame un entero");
+		pl(entero);
+
+		String texto = rString("Dame un texto");
+		pl(texto);
+
+		LocalDate fecha = rLocalDate("Dame una fecha");
+		pl(fecha);
 	}
 }

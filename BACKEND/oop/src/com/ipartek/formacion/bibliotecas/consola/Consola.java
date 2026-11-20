@@ -14,6 +14,10 @@ public class Consola {
 		return DateTimeFormatter.ofPattern(formatoFecha);
 	}
 
+	public static void pfl(String formato, Object... args) {
+		System.out.printf(formato + "\n", args);
+	}
+	
 	public static void pl(Object mensaje) {
 		System.out.println(mensaje);
 	}

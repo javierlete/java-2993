@@ -9,6 +9,7 @@ import com.ipartek.formacion.oop.pojos.Persona;
 
 public class PersonaConsola {
 
+	private static final String FORMATO_LISTADO = "%-10s %-20s %s";
 	private static final int SALIR = 0;
 
 	public static void main(String[] args) {
@@ -52,8 +53,11 @@ public class PersonaConsola {
 	private static void listado() {
 		pl("Listado");
 		
+		pfl(FORMATO_LISTADO, "Nombre", "Apellidos", "Fecha de nacimiento");
+		pfl(FORMATO_LISTADO, "======", "=========", "===================");
+
 		for(Persona persona: PersonaDao.obtenerTodos()) {
-			pl(persona);
+			pfl(FORMATO_LISTADO, persona.nombre(), persona.apellidos(), persona.fechaNacimiento());
 		}
 	}
 

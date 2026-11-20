@@ -1,5 +1,6 @@
 package com.ipartek.formacion.oop.accesodatos;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.TreeMap;
 
@@ -9,6 +10,11 @@ import com.ipartek.formacion.oop.pojos.Persona;
 // DAO (Data Access Object)
 public class PersonaDao {
 	private static final TreeMap<Long, Persona> PERSONAS = new TreeMap<>();
+	
+	static {
+		PERSONAS.put(1L, new Persona(1L, "Javier", "Lete", LocalDate.now()));
+		PERSONAS.put(2L, new Persona(2L, "Pepe", "Pérez", LocalDate.now()));
+	}
 
 	public static Collection<Persona> obtenerTodos() {
 		return PERSONAS.values();

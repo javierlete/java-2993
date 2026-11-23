@@ -9,13 +9,13 @@ public class Producto {
 	private static final RoundingMode REDONDEO = RoundingMode.HALF_UP;
 	private static final int NUMERO_DECIMALES = 2;
 	private static final BigDecimal IVA = new BigDecimal("0.21");
-	private static final String NOMBRE_POR_DEFECTO = "SIN NOMBRE";
-	private static final BigDecimal PRECIO_POR_DEFECTO = BigDecimal.ZERO;
+	protected static final String NOMBRE_POR_DEFECTO = "SIN NOMBRE";
+	protected static final BigDecimal PRECIO_POR_DEFECTO = BigDecimal.ZERO;
 
 	// VARIABLES DE INSTANCIA
-	private Long id;
-	private String nombre;
-	private BigDecimal precio;
+	protected Long id;
+	protected String nombre;
+	protected BigDecimal precio;
 
 	// CONSTRUCTORES
 	public Producto(Long id, String nombre, BigDecimal precio) {

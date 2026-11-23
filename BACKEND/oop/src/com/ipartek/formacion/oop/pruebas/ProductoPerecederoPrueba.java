@@ -44,6 +44,8 @@ public class ProductoPerecederoPrueba {
 
 		Producto p = p1;
 
+		System.out.println("TO STRING DE PRODUCTO: " + p.toString());
+		
 //		System.out.println(p.getFechaCaducidad()); // Falla
 
 		if (p instanceof ProductoPerecedero otroP) {

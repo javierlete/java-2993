@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import com.ipartek.formacion.bibliotecas.accesodatos.AccesoDatosException;
 import com.ipartek.formacion.oop.pojos.Producto;
 
 public class DaoProductoMySql implements DaoProducto {

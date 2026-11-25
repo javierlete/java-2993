@@ -14,6 +14,12 @@ public class JdbcPrueba {
 
 		Connection con = DriverManager.getConnection(url, user, pass);
 		Statement st = con.createStatement();
+
+		int numeroResultados = st.executeUpdate(
+				"UPDATE productos SET nombre='Mega Portátil',precio=4321.21 WHERE id=1");
+
+		System.out.println(numeroResultados);
+		
 		ResultSet rs = st.executeQuery("SELECT * FROM productos");
 
 		while (rs.next()) {

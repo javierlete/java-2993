@@ -1,12 +1,12 @@
 package com.ipartek.formacion.oop.pruebas;
 
 import com.ipartek.formacion.bibliotecas.accesodatos.AccesoDatosException;
+import com.ipartek.formacion.bibliotecas.fabrica.Fabrica;
 import com.ipartek.formacion.oop.accesodatos.DaoCliente;
-import com.ipartek.formacion.oop.accesodatos.DaoClienteMySql;
 import com.ipartek.formacion.oop.pojos.Cliente;
 
 public class DaoClientePrueba {
-	private static final DaoCliente DAO = new DaoClienteMySql();
+	private static final DaoCliente DAO = (DaoCliente) Fabrica.fabricar("dao.cliente");
 
 	public static void main(String[] args) {
 

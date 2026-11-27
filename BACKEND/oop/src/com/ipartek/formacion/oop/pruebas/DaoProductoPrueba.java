@@ -3,13 +3,13 @@ package com.ipartek.formacion.oop.pruebas;
 import java.math.BigDecimal;
 
 import com.ipartek.formacion.bibliotecas.accesodatos.AccesoDatosException;
+import com.ipartek.formacion.bibliotecas.fabrica.Fabrica;
 import com.ipartek.formacion.oop.accesodatos.DaoProducto;
-import com.ipartek.formacion.oop.accesodatos.DaoProductoMySql;
 import com.ipartek.formacion.oop.pojos.Producto;
 
 public class DaoProductoPrueba {
 	public static void main(String[] args) {
-		DaoProducto dao = new DaoProductoMySql(); // new DaoProductoTreeMap();
+		DaoProducto dao = (DaoProducto) Fabrica.fabricar("dao.producto");
 
 //		dao.obtenerPorNombre("Prueba");
 //		dao.obtenerPorPrecio(new BigDecimal("10"), new BigDecimal("100"));

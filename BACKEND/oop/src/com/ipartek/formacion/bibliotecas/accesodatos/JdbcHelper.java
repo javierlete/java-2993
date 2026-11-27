@@ -51,13 +51,7 @@ public class JdbcHelper {
 
 	public <T> Iterable<T> ejecutarConsulta(String sql, Mapeador<T> mapeador, Object... args) {
 		try {
-			PreparedStatement pst = crearPreparedStatement(sql);
-
-			int pos = 1;
-
-			for (Object arg : args) {
-				pst.setObject(pos++, arg);
-			}
+			PreparedStatement pst = prepararSentencia(sql, args);
 
 			try (ResultSet rs = pst.executeQuery()) {
 				ArrayList<T> objetos = new ArrayList<>();
@@ -88,13 +82,7 @@ public class JdbcHelper {
 
 	public Optional<Long> ejecutarCambio(String sql, Object... args) {
 		try {
-			PreparedStatement pst = crearPreparedStatement(sql);
-
-			int pos = 1;
-
-			for (Object arg : args) {
-				pst.setObject(pos++, arg);
-			}
+			PreparedStatement pst = prepararSentencia(sql, args);
 
 			int numeroRegistrosModificados = pst.executeUpdate();
 
@@ -117,5 +105,17 @@ public class JdbcHelper {
 		} finally {
 			cerrarConexion();
 		}
+	}
+
+	private PreparedStatement prepararSentencia(String sql, Object... args)
+			throws SQLException {
+		PreparedStatement pst = crearPreparedStatement(sql);
+	
+		int pos = 1;
+	
+		for (Object arg : args) {
+			pst.setObject(pos++, arg);
+		}
+		return pst;
 	}
 }
